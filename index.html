@@ -450,15 +450,31 @@
 
   const audio = new Audio("meri_zindagi.mp3");
   audio.loop = true;
-  audio.currentTime = 35;
+
+  // Set initial time safely when metadata is loaded to avoid InvalidStateError
+  const setInitialTime = () => {
+    try {
+      audio.currentTime = 35;
+    } catch (e) {
+      console.warn("Failed to set initial time:", e);
+    }
+  };
+
+  if (audio.readyState >= 1) {
+    setInitialTime();
+  } else {
+    audio.addEventListener('loadedmetadata', setInitialTime, { once: true });
+  }
 
   function startAutoplay() {
-    audio.play().then(() => {
+    return audio.play().then(() => {
       playing = true;
       document.getElementById('playBtn').textContent = '⏸️';
       document.getElementById('vinyl').classList.add('spinning');
+      return true;
     }).catch(err => {
       console.log("Autoplay blocked, waiting for user interaction:", err);
+      return false;
     });
   }
 
@@ -466,10 +482,16 @@
     startAutoplay();
     const playOnGesture = () => {
       if (!playing) {
-        startAutoplay();
+        startAutoplay().then((success) => {
+          if (success) {
+            document.removeEventListener('click', playOnGesture);
+            document.removeEventListener('touchstart', playOnGesture);
+          }
+        });
+      } else {
+        document.removeEventListener('click', playOnGesture);
+        document.removeEventListener('touchstart', playOnGesture);
       }
-      document.removeEventListener('click', playOnGesture);
-      document.removeEventListener('touchstart', playOnGesture);
     };
     document.addEventListener('click', playOnGesture);
     document.addEventListener('touchstart', playOnGesture);
