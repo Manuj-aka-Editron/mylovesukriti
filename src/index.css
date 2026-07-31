@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+@import "tailwindcss";
+
+
+:root {
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Montserrat', sans-serif;
+  --font-handwriting: 'Caveat', cursive;
+  --font-elegant: 'Great Vibes', cursive;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #fffbf7;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 182, 193, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 182, 193, 0.5);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(205, 180, 219, 0.8);
+}
+
+/* Glassmorphism Preset */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(255, 182, 193, 0.15);
+}
+
+.glass-panel-dark {
+  background: rgba(15, 5, 29, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(255,105,180,0.8) 0%, rgba(255,182,193,0.3) 100%);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.2s, height 0.2s;
+  box-shadow: 0 0 10px rgba(255,105,180,0.6);
+}
+
+/* Hide default cursor on desktop */
+@media (min-width: 1024px) {
+  body {
+    cursor: none;
+  }
+  a, button, select, input, [role="button"] {
+    cursor: none;
+  }
+}
+
+/* Glowing text */
+.glow-text-pink {
+  text-shadow: 0 0 10px rgba(255, 182, 193, 0.6), 0 0 20px rgba(255, 182, 193, 0.4);
+}
+.glow-text-lavender {
+  text-shadow: 0 0 10px rgba(205, 180, 219, 0.6), 0 0 20px rgba(205, 180, 219, 0.4);
+}
+
+/* Timeline background trail */
+.timeline-line {
+  background: linear-gradient(to right, transparent, rgba(255, 182, 193, 0.8), rgba(205, 180, 219, 0.8), transparent);
+}
+
+/* Heart Loader breathing animation */
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.1); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.1); }
+  70% { transform: scale(1); }
+}
+
+.heart-beat {
+  animation: heartBeat 1.4s infinite ease-in-out;
+}
+
+/* Custom Animations */
+@keyframes floating {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.float-slow {
+  animation: floating 4s infinite ease-in-out;
+}
+
+.float-slower {
+  animation: floating 6s infinite ease-in-out;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-handwriting {
+  font-family: var(--font-handwriting);
+}
+
+.font-elegant {
+  font-family: var(--font-elegant);
+}
