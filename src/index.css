@@ -1,120 +1,131 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
-
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
 
+@theme {
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Outfit', 'Montserrat', -apple-system, sans-serif;
+  --font-handwriting: 'Caveat', cursive;
+  --font-script: 'Great Vibes', 'Alex Brush', cursive;
+
+  --color-cream-50: #FFFDF9;
+  --color-cream-100: #FAF6EE;
+  --color-cream-200: #F5EFEB;
+  --color-cream-300: #EAE0D5;
+
+  --color-blush-50: #FFF7F8;
+  --color-blush-100: #FFEBF0;
+  --color-blush-200: #FDCED8;
+  --color-blush-300: #FAA5B8;
+  --color-blush-400: #F67290;
+  --color-blush-500: #E8456C;
+
+  --color-dusty-light: #E5BAC2;
+  --color-dusty: #C17B88;
+  --color-dusty-deep: #9B515E;
+  --color-dusty-dark: #682C36;
+
+  --color-wine: #742232;
+  --color-wine-deep: #4A1521;
+  --color-wine-light: #943447;
+
+  --color-gold-light: #F7E7CE;
+  --color-gold: #D4AF37;
+  --color-gold-dark: #B8860B;
+}
 
 :root {
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Montserrat', sans-serif;
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Outfit', 'Montserrat', -apple-system, sans-serif;
   --font-handwriting: 'Caveat', cursive;
-  --font-elegant: 'Great Vibes', cursive;
+  --font-script: 'Great Vibes', 'Alex Brush', cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: #fffbf7;
+  background-color: #FFFDF9;
+  color: #4A1521;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
 }
 
-/* Custom Scrollbar */
+/* Custom romantic scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(255, 182, 193, 0.1);
+  background: #FAF6EE;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 182, 193, 0.5);
-  border-radius: 4px;
+  background: #FDCED8;
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(205, 180, 219, 0.8);
+  background: #F67290;
 }
 
-/* Glassmorphism Preset */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 8px 32px 0 rgba(255, 182, 193, 0.15);
+/* Premium luxury stationery texture */
+.stationery-paper {
+  background-color: #FFFDF9;
+  background-image: 
+    radial-gradient(rgba(229, 186, 194, 0.25) 1px, transparent 1px),
+    linear-gradient(to right, rgba(232, 69, 108, 0.02) 1px, transparent 1px);
+  background-size: 18px 18px, 100% 28px;
+  box-shadow: 
+    0 10px 40px -10px rgba(116, 34, 50, 0.08),
+    0 2px 10px -2px rgba(116, 34, 50, 0.04),
+    inset 0 0 0 1px rgba(253, 206, 216, 0.6);
 }
 
-.glass-panel-dark {
-  background: rgba(15, 5, 29, 0.45);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+/* Washi tape for polaroid cards */
+.washi-tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1.5deg);
+  width: 75px;
+  height: 22px;
+  background: rgba(253, 206, 216, 0.85);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(2px);
+  border-left: 2px dashed rgba(193, 123, 136, 0.4);
+  border-right: 2px dashed rgba(193, 123, 136, 0.4);
+  z-index: 10;
 }
 
-/* Custom Cursor */
-.custom-cursor {
-  width: 20px;
-  height: 20px;
-  background: radial-gradient(circle, rgba(255,105,180,0.8) 0%, rgba(255,182,193,0.3) 100%);
-  border-radius: 50%;
-  position: fixed;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 9999;
-  transition: width 0.2s, height 0.2s;
-  box-shadow: 0 0 10px rgba(255,105,180,0.6);
+/* Realistic crimson wax seal */
+.wax-seal {
+  background: radial-gradient(circle at 35% 35%, #BE123C 0%, #881337 70%, #4C0519 100%);
+  box-shadow: 
+    0 6px 18px rgba(136, 19, 55, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.4),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 220, 230, 0.35);
 }
 
-/* Hide default cursor on desktop */
-@media (min-width: 1024px) {
-  body {
-    cursor: none;
-  }
-  a, button, select, input, [role="button"] {
-    cursor: none;
-  }
+/* Soft romantic glassmorphism */
+.glass-romance {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(253, 206, 216, 0.55);
+  box-shadow: 0 8px 30px rgba(193, 123, 136, 0.08);
 }
 
-/* Glowing text */
-.glow-text-pink {
-  text-shadow: 0 0 10px rgba(255, 182, 193, 0.6), 0 0 20px rgba(255, 182, 193, 0.4);
-}
-.glow-text-lavender {
-  text-shadow: 0 0 10px rgba(205, 180, 219, 0.6), 0 0 20px rgba(205, 180, 219, 0.4);
-}
-
-/* Timeline background trail */
-.timeline-line {
-  background: linear-gradient(to right, transparent, rgba(255, 182, 193, 0.8), rgba(205, 180, 219, 0.8), transparent);
+.glass-romance-rose {
+  background: rgba(255, 245, 247, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(246, 114, 144, 0.25);
+  box-shadow: 0 10px 35px rgba(232, 69, 108, 0.1);
 }
 
-/* Heart Loader breathing animation */
-@keyframes heartBeat {
-  0% { transform: scale(1); }
-  14% { transform: scale(1.1); }
-  28% { transform: scale(1); }
-  42% { transform: scale(1.1); }
-  70% { transform: scale(1); }
-}
-
-.heart-beat {
-  animation: heartBeat 1.4s infinite ease-in-out;
-}
-
-/* Custom Animations */
-@keyframes floating {
-  0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(3deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
-}
-
-.float-slow {
-  animation: floating 4s infinite ease-in-out;
-}
-
-.float-slower {
-  animation: floating 6s infinite ease-in-out;
-}
-
+/* Font helpers */
 .font-serif {
   font-family: var(--font-serif);
 }
@@ -127,6 +138,47 @@ body {
   font-family: var(--font-handwriting);
 }
 
-.font-elegant {
-  font-family: var(--font-elegant);
+.font-script {
+  font-family: var(--font-script);
 }
+
+/* Animations */
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.12); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.12); }
+  70% { transform: scale(1); }
+}
+
+.animate-heartbeat {
+  animation: heartBeat 1.8s ease-in-out infinite;
+}
+
+@keyframes pulseGentle {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+
+.animate-pulse-gentle {
+  animation: pulseGentle 3s ease-in-out infinite;
+}
+
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1.5deg); }
+}
+
+.animate-float-soft {
+  animation: floatSoft 5s ease-in-out infinite;
+}
+
+/* Soundwave bars */
+@keyframes soundwave {
+  0%, 100% { height: 4px; }
+  50% { height: 16px; }
+}
+
+.audio-bar-1 { animation: soundwave 1.2s ease-in-out infinite; }
+.audio-bar-2 { animation: soundwave 0.9s ease-in-out infinite 0.2s; }
+.audio-bar-3 { animation: soundwave 1.4s ease-in-out infinite 0.4s; }
