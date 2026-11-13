@@ -219,7 +219,7 @@ export const ScrapbookSection: React.FC = () => {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e: React.MouseEvent) => e.stopPropagation()}
               className="relative max-w-md w-full bg-[#FFFDF9] p-4 pb-6 rounded-3xl shadow-2xl border border-rose-200 overflow-hidden"
             >
               <button

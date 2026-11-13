@@ -215,7 +215,7 @@ export const InteractiveLoveSection: React.FC = () => {
               initial={{ scale: 0.9, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e: React.MouseEvent) => e.stopPropagation()}
               className="relative max-w-sm w-full bg-gradient-to-b from-[#FFFDF9] via-[#FFF5F7] to-[#FCE4EC] p-8 sm:p-9 rounded-3xl shadow-2xl border border-rose-200 text-center overflow-hidden"
             >
               {/* Close button */}
